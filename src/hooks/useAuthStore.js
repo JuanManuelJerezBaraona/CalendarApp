@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { calendarApi } from "../api";
-import { onChecking } from "../store";
+import { onChecking, onLogin, onLogout } from "../store";
 
 
 export const useAuthStore = () => {
@@ -18,7 +18,7 @@ export const useAuthStore = () => {
             dispatch( onLogin({ name: data.name, uid: data.uid }) );
             
         } catch (error) {
-            console.log(error)
+            dispatch( onLogout('Credenciales incorrectas'));
             
         }
     }
